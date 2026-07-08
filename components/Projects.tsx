@@ -12,7 +12,7 @@ const projects = [
       "Built a full AI voice receptionist for a restaurant — customers call in and speak naturally to book tables, place dine-in or takeaway orders, and check order status. All actions reflect live on a Next.js ops dashboard via Supabase real-time, giving staff instant visibility without touching a phone.",
     tags: ["Python", "LiveKit", "Deepgram STT", "Groq / Llama 3.3", "ElevenLabs TTS", "Supabase", "Next.js"],
     github: "https://github.com/adityagargdev/restaurant-ai",
-    live: null,
+    live: "https://web-azure-one-59.vercel.app/",
   },
   {
     number: "02",
