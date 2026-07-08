@@ -5,15 +5,17 @@ import { useRef } from "react";
 
 const projects = [
   {
-    title: "AI Voice Assistant",
-    subtitle: "Real-Time Media Delivery System",
+    number: "01",
+    title: "Pepper & Pine — AI Voice Receptionist",
+    subtitle: "Restaurant AI Platform · Real-Time Ops Dashboard",
     description:
-      "Architected a scalable real-time audio streaming pipeline via a dual-WebSocket bridge between Twilio and Deepgram, enabling ultra-low-latency multilingual media delivery across concurrent sessions.",
-    tags: ["Python", "FastAPI", "Twilio", "Deepgram", "Groq / Llama 3.1"],
-    github: "https://github.com/adityagargdev",
+      "Built a full AI voice receptionist for a restaurant — customers call in and speak naturally to book tables, place dine-in or takeaway orders, and check order status. All actions reflect live on a Next.js ops dashboard via Supabase real-time, giving staff instant visibility without touching a phone.",
+    tags: ["Python", "LiveKit", "Deepgram STT", "Groq / Llama 3.3", "ElevenLabs TTS", "Supabase", "Next.js"],
+    github: "https://github.com/adityagargdev/restaurant-ai",
     live: null,
   },
   {
+    number: "02",
     title: "Sports Tournament Manager",
     subtitle: "Multi-Stakeholder Platform",
     description:
@@ -23,6 +25,7 @@ const projects = [
     live: null,
   },
   {
+    number: "03",
     title: "Sports Performance Tracker",
     subtitle: "Analytics Platform · Live",
     description:
@@ -38,45 +41,56 @@ export default function Projects() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="projects" className="section-padding border-t border-[#D8D8D3]">
+    <section id="projects" className="section-padding border-t border-[#E0E0DA]">
       <div ref={ref} className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="mb-14"
+          className="mb-16 flex items-end justify-between"
         >
-          <p className="text-xs text-[#4A7C59] tracking-widest uppercase mb-4 font-medium">
-            Work
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] leading-tight">
-            Things I&apos;ve built
-          </h2>
+          <div>
+            <p className="text-xs text-[#3D7A56] tracking-[0.2em] uppercase mb-4 font-semibold flex items-center gap-3">
+              <span className="w-8 h-px bg-[#3D7A56] inline-block" />
+              Work
+            </p>
+            <h2 className="text-3xl md:text-5xl font-black text-[#141414] leading-tight tracking-tight" style={{ letterSpacing: "-0.025em" }}>
+              Things I&apos;ve built
+            </h2>
+          </div>
         </motion.div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-5">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group p-8 rounded-2xl border border-[#D8D8D3] bg-[#F5F5F0] hover:border-[#4A7C59] hover:bg-[#E8F0EA] transition-all duration-300"
+              transition={{ duration: 0.55, delay: i * 0.1 }}
+              className="card-lift group p-8 md:p-10 rounded-2xl border border-[#E0E0DA] bg-[#F7F7F2] hover:border-[#3D7A56]/40"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-[#1A1A1A] mb-1">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-[#4A7C59] font-medium">{project.subtitle}</p>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-5">
+                <div className="flex items-start gap-5">
+                  <span
+                    className="text-xs font-bold text-[#D0D0CA] mt-1 shrink-0 tracking-widest"
+                    style={{ fontVariantNumeric: "tabular-nums" }}
+                  >
+                    {project.number}
+                  </span>
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-[#141414] mb-1 tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-[#3D7A56] font-medium">{project.subtitle}</p>
+                  </div>
                 </div>
-                <div className="flex gap-3 shrink-0">
+                <div className="flex gap-3 shrink-0 md:mt-1">
                   {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs px-4 py-2 bg-[#1A1A1A] text-[#F5F5F0] rounded-full hover:bg-[#4A7C59] transition-colors duration-200"
+                      className="text-xs px-4 py-2 bg-[#141414] text-[#F7F7F2] rounded-full hover:bg-[#3D7A56] transition-colors duration-200 font-medium"
                     >
                       Live ↗
                     </a>
@@ -85,22 +99,22 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs px-4 py-2 border border-[#D8D8D3] text-[#1A1A1A] rounded-full hover:border-[#1A1A1A] transition-colors duration-200"
+                    className="text-xs px-4 py-2 border border-[#E0E0DA] text-[#141414] rounded-full hover:border-[#141414] transition-colors duration-200 font-medium"
                   >
                     GitHub ↗
                   </a>
                 </div>
               </div>
 
-              <p className="text-[#6B6B6B] leading-relaxed mb-5 text-sm">
+              <p className="text-[#6B6B6B] leading-relaxed mb-6 text-sm md:text-base ml-0 md:ml-10">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 md:ml-10">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 bg-[#EBEBEB] text-[#1A1A1A] text-xs rounded-md font-medium"
+                    className="px-3 py-1 bg-[#EFEFEA] text-[#141414] text-xs rounded-full font-medium border border-[#E0E0DA]"
                   >
                     {tag}
                   </span>
