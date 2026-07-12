@@ -26,6 +26,16 @@ const projects = [
   },
   {
     number: "03",
+    title: "RadioGlobe",
+    subtitle: "Interactive Music Explorer · Client-Side",
+    description:
+      "Spin a 3D globe to any country and instantly stream that region's Apple Music Top 50 with 30-second previews. Drag to rotate, hit Spin to fly somewhere random, skip or pause tracks — all client-side, no backend, no API keys.",
+    tags: ["JavaScript", "globe.gl", "Three.js", "iTunes RSS API", "GeoJSON"],
+    github: "https://github.com/adityagargdev/radio-head",
+    live: null,
+  },
+  {
+    number: "04",
     title: "Sports Performance Tracker",
     subtitle: "Analytics Platform · Live",
     description:
