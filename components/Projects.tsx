@@ -16,13 +16,13 @@ const projects = [
   },
   {
     number: "02",
-    title: "Sports Tournament Manager",
-    subtitle: "Multi-Stakeholder Platform",
+    title: "TopSeed — Sports Tournament Manager",
+    subtitle: "Multi-Sport Tournament Platform · Live",
     description:
-      "Full-stack platform replacing manual tournament workflows with automated bracket scheduling, WebSocket-driven live scoring, and role-based dashboards for organizers, teams, and spectators.",
-    tags: ["React", "Node.js", "Express", "PostgreSQL", "WebSockets"],
-    github: "https://github.com/adityagargdev",
-    live: null,
+      "Lets organizers spin up a full tournament in minutes — auto-generated single/double-elimination and round-robin brackets with seeded BYE placement, singles/doubles/team events under one roof, and sport-specific scoring rules for everything from badminton sets to football match time. Scores and bracket state push live to every viewer over Socket.io, entry fees run through Razorpay, and a Super Admin → Admin → User role system lets organizers delegate management without losing control.",
+    tags: ["React", "TypeScript", "Node.js", "Prisma", "PostgreSQL", "Socket.io", "Razorpay"],
+    github: "https://github.com/adityagargdev/topseed",
+    live: "https://topseed-lilac.vercel.app/",
   },
   {
     number: "03",
