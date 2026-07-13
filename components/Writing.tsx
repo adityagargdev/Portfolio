@@ -5,25 +5,20 @@ import { useRef } from "react";
 
 const posts = [
   {
-    title: "On competing at nationals",
+    title: "The comeback you don't forget",
     excerpt:
-      "What playing badminton at the national level actually taught me — and it wasn't about technique. It was about how you handle the moment before the first point.",
-    date: "Coming soon",
+      "Five nationals, same nerves every time. The match I think about most — 12-19 down in the second set, one set already gone. I just didn't decide it was over, and apparently that was enough.",
+    date: "On Medium",
     tag: "Sport",
+    link: "https://medium.com/@adityacharchitgarg/the-comeback-you-dont-forget-7f420a8ccf1e",
   },
   {
-    title: "Why every engineer should play a sport",
+    title: "It's not discipline. It's belief.",
     excerpt:
-      "There's something about competing under pressure that no side project replicates. Losing a match in front of a crowd is a masterclass in emotional debugging.",
-    date: "Coming soon",
+      "Everyone says sport teaches discipline. None of that is the interesting part. What it actually gave me is harder to name — a baseline certainty that things get solved if you stay in them long enough.",
+    date: "On Medium",
     tag: "Reflection",
-  },
-  {
-    title: "Learning to build: my first real project",
-    excerpt:
-      "The gap between tutorial code and something that actually runs in production is wider than anyone tells you. Here's what I learned shipping my first full-stack app.",
-    date: "Coming soon",
-    tag: "Tech",
+    link: "https://medium.com/@adityacharchitgarg/its-not-discipline-it-s-belief-82a96478a141",
   },
 ];
 
@@ -48,14 +43,18 @@ export default function Writing() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {posts.map((post, i) => (
-            <motion.article
+            <motion.a
               key={post.title}
+              href={post.link ?? undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex flex-col justify-between p-6 rounded-2xl border border-[#D8D8D3] hover:border-[#4A7C59] transition-all duration-300 cursor-pointer group"
+              className="flex flex-col justify-between p-6 rounded-2xl border border-[#D8D8D3] hover:border-[#4A7C59] transition-all duration-300 group no-underline"
+              style={{ cursor: post.link ? "pointer" : "default" }}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -69,10 +68,10 @@ export default function Writing() {
                 </h3>
                 <p className="text-sm text-[#6B6B6B] leading-relaxed">{post.excerpt}</p>
               </div>
-              <div className="mt-6 text-xs text-[#4A7C59] font-medium">
-                Read more →
+              <div className="mt-6 text-xs font-medium" style={{ color: post.link ? "#4A7C59" : "#B0B0AA" }}>
+                {post.link ? "Read on Medium →" : "Publishing soon →"}
               </div>
-            </motion.article>
+            </motion.a>
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 
 const marqueeItems = [
   "Badminton", "Football", "Gym", "Music", "Reading",
@@ -43,9 +43,21 @@ const tiles = [
   },
 ];
 
+const photos = [
+  { src: "/photo-boat.jpg.jpeg", caption: "Goa", position: "center top" },
+  { src: "/photo-trophy-selfie.jpg.jpeg", caption: "On court", position: "center center" },
+  { src: "/photo-about.jpg.jpeg", caption: "", position: "center top" },
+  { src: "/photo-badminton-kid.jpg.jpeg", caption: "How it started", position: "center center" },
+  { src: "/photo-trophy.jpg.jpeg", caption: "One of many", position: "center center" },
+];
+
 export default function Life() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [current, setCurrent] = useState(0);
+
+  const prev = () => setCurrent((c) => (c - 1 + photos.length) % photos.length);
+  const next = () => setCurrent((c) => (c + 1) % photos.length);
 
   return (
     <section id="life" className="border-t border-[#E0E0DA]">
@@ -95,32 +107,66 @@ export default function Life() {
           ))}
         </div>
 
-        {/* Photo grid — natural sizes, no cropping */}
+        {/* Photo slideshow */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 columns-2 md:columns-3 gap-4 space-y-4"
+          className="mt-10"
         >
-          {[
-            { src: "/photo-boat.jpg.jpeg", alt: "On a boat in Goa" },
-            { src: "/photo-trophy-selfie.jpg.jpeg", alt: "Trophy on court" },
-            { src: "/photo-about.jpg.jpeg", alt: "Aditya Garg" },
-            { src: "/photo-badminton-kid.jpg.jpeg", alt: "Young Aditya playing badminton" },
-            { src: "/photo-trophy.jpg.jpeg", alt: "Receiving trophy" },
-          ].map((photo) => (
-            <div
-              key={photo.src}
-              className="break-inside-avoid rounded-2xl overflow-hidden"
-              style={{ boxShadow: "0 4px 20px -4px rgba(20,20,20,0.10)" }}
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-auto block"
+          <div className="relative rounded-2xl overflow-hidden bg-[#0C0C0C]" style={{ height: "520px" }}>
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={current}
+                src={photos[current].src}
+                alt={photos[current].caption}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -40 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-0 w-full h-full"
+                style={{ objectFit: "contain", objectPosition: photos[current].position }}
               />
-            </div>
-          ))}
+            </AnimatePresence>
+
+            {/* Caption */}
+            {photos[current].caption && (
+              <div className="absolute bottom-4 left-5 z-10">
+                <span className="text-xs text-white/60 font-medium tracking-wide">{photos[current].caption}</span>
+              </div>
+            )}
+
+            {/* Prev / Next */}
+            <button
+              onClick={prev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+            >
+              ‹
+            </button>
+            <button
+              onClick={next}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+            >
+              ›
+            </button>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {photos.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                className="transition-all duration-200"
+                style={{
+                  width: i === current ? "20px" : "6px",
+                  height: "6px",
+                  borderRadius: "3px",
+                  background: i === current ? "#3D7A56" : "#D0D0CA",
+                }}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

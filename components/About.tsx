@@ -6,16 +6,16 @@ import { useRef } from "react";
 const tags = [
   "National Badminton Player",
   "College Team Captain",
-  "Real-Time Systems",
   "Full-Stack Dev",
-  "Sports Enthusiast",
+  "Football & Gym",
+  "Avid Reader",
   "MIT Bengaluru '27",
 ];
 
 const stats = [
-  { value: "3+", label: "Projects shipped" },
-  { value: "↑", label: "National level" },
-  { value: "2", label: "Teams captained" },
+  { value: "4+", label: "Projects shipped" },
+  { value: "National", label: "Badminton player" },
+  { value: "Captain", label: "MIT Bengaluru team" },
 ];
 
 export default function About() {
@@ -35,20 +35,21 @@ export default function About() {
             About
           </p>
           <h2 className="text-3xl md:text-4xl font-black text-[#141414] mb-8 leading-tight tracking-tight" style={{ letterSpacing: "-0.025em" }}>
-            Engineer on screen,
+            Ended up in CS.
             <br />
-            <span className="text-[#6B6B6B] font-light">athlete everywhere else.</span>
+            <span className="text-[#6B6B6B] font-light">Glad I did.</span>
           </h2>
           <p className="text-[#6B6B6B] leading-relaxed mb-5 text-[15px]">
-            I&apos;m a Computer Science undergrad at Manipal Institute of Technology,
-            Bengaluru. I build real-time systems — AI pipelines, sports platforms,
-            full-stack applications — things that need to be fast and reliable.
+            I was a national-level badminton player through school. A bad injury in class 10 ended that chapter. I landed in Computer Science at MIT Bengaluru — not because I had some grand plan, but because I needed somewhere to go. Turns out I actually like it here.
+          </p>
+          <p className="text-[#6B6B6B] leading-relaxed mb-5 text-[15px]">
+            I captained my college badminton team — which sounds straightforward until you realise badminton is an individual sport. Representing college turns it into a team fixture: win 3 of 5 matches or you lose. So you&apos;re making lineup calls, managing people&apos;s nerves, lifting morale after losses. We lost a lot. I got good at that part.
+          </p>
+          <p className="text-[#6B6B6B] leading-relaxed mb-5 text-[15px]">
+            Back in school I was Sports Captain at DPS Greater Faridabad — an elected position on the student council. Had to actually campaign for it, win votes, then spend a year being responsible for everything sports-related across the school. Different kind of pressure to the court.
           </p>
           <p className="text-[#6B6B6B] leading-relaxed mb-10 text-[15px]">
-            Outside of code, I&apos;ve competed in badminton at the national level,
-            captained my college team, and led my school as Sports Captain. Sport
-            taught me discipline, competition, and how to lose well — probably the
-            most useful things I know.
+            Outside of code I&apos;m usually somewhere between the gym, a football pitch, a playlist, a book, or a trip. I like to dance but cannot dance. I will quote a TV show at you if the line fits — and it always fits.
           </p>
 
           <div className="flex gap-8 mb-10 pb-10 border-b border-[#E0E0DA]">
