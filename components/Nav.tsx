@@ -42,7 +42,7 @@ export default function Nav() {
           ))}
         </ul>
         <a
-          href="mailto:adityacharchitgarg@gmail.com"
+          href="#contact"
           className="text-sm px-4 py-2 rounded-full border border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F5F5F0] transition-all duration-200"
         >
           Say hi
