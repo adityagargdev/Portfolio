@@ -3,7 +3,18 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const projects = [
+interface Project {
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  github: string;
+  live: string | null;
+  liveLabel?: string;
+}
+
+const projects: Project[] = [
   {
     number: "01",
     title: "Pepper & Pine — AI Voice Receptionist",
@@ -43,6 +54,17 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB Atlas", "JWT", "Google OAuth", "PWA"],
     github: "https://github.com/adityagargdev/Sports-Tracker",
     live: "https://sports-tracker-sigma.vercel.app",
+  },
+  {
+    number: "05",
+    title: "ShuttleVision",
+    subtitle: "Badminton Match Analytics · CV/ML Desktop App",
+    description:
+      "Upload a match video or paste a YouTube link and get a full tactical breakdown — TrackNetV2 tracks the shuttle frame-by-frame, OpenCV maps the court via homography, and a rule-based classifier tags every shot as a smash, clear, drop, lift, drive, or net. Explore it across a 7-tab dashboard: heatmaps, rally-by-rally trajectories, speed histograms, and an AI coach powered by Llama 3.3 70B that answers questions about your own match data.",
+    tags: ["Python", "PyTorch", "TrackNetV2", "YOLOv8", "OpenCV", "Electron", "React"],
+    github: "https://github.com/adityagargdev/ShuttleVision",
+    live: "https://github.com/adityagargdev/ShuttleVision/releases/tag/v1.0.0",
+    liveLabel: "Download",
   },
 ];
 
@@ -102,7 +124,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="text-xs px-4 py-2 bg-[#141414] text-[#F7F7F2] rounded-full hover:bg-[#3D7A56] transition-colors duration-200 font-medium"
                     >
-                      Live ↗
+                      {project.liveLabel ?? "Live"} ↗
                     </a>
                   )}
                   <a
