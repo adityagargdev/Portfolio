@@ -13,7 +13,7 @@ const tags = [
 ];
 
 const stats = [
-  { value: "5+", label: "Projects shipped" },
+  { value: "7+", label: "Projects shipped" },
   { value: "National", label: "Badminton player" },
   { value: "Captain", label: "MIT Bengaluru team" },
 ];

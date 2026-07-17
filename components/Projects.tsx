@@ -66,6 +66,26 @@ const projects: Project[] = [
     live: "https://github.com/adityagargdev/ShuttleVision/releases/tag/v1.0.0",
     liveLabel: "Download",
   },
+  {
+    number: "06",
+    title: "QuickMart — Quick-Commerce Grocery App",
+    subtitle: "Full-Stack PWA · Blinkit-Style Delivery",
+    description:
+      "A grocery delivery platform built for sub-10-minute-delivery UX end-to-end — category browsing with real-time search, an animated cart with live quantity controls, Supabase-backed auth and address management, and Razorpay checkout. Ships as an installable PWA with a custom service worker, plus a full admin panel for managing products, categories, and orders behind route-protected middleware.",
+    tags: ["Next.js 16", "Supabase", "Razorpay", "Zustand", "Tailwind CSS", "PWA"],
+    github: "https://github.com/adityagargdev/e-commerce-trial",
+    live: null,
+  },
+  {
+    number: "07",
+    title: "AI-Assisted SOP Editor",
+    subtitle: "Rich-Text Editor · Streaming AI Content Generation",
+    description:
+      "A from-scratch ProseMirror/TipTap document editor built to solve the two hard problems documentation tools like Notion or Confluence depend on: a domain-specific schema (auto-renumbering Step nodes, variant-based Callouts, captioned images as real editable content) and AI that writes directly into that structure instead of dumping unformatted text. Select any text to Rewrite, Expand, or Simplify inline via streamed Groq completions, or generate a full structured SOP from a one-line prompt.",
+    tags: ["Next.js 16", "TipTap", "ProseMirror", "Groq", "Tailwind CSS"],
+    github: "https://github.com/adityagargdev/sop-editor",
+    live: "https://sop-editor-tau.vercel.app",
+  },
 ];
 
 export default function Projects() {
